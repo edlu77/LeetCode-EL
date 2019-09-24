@@ -9,8 +9,24 @@
 var superpalindromesInRange = function(L, R) {
   const left = parseInt(L);
   const right = parseInt(R);
+  let n = Math.ceil(left**.5);
+  let m = Math.floor(right**.5);
+  let count = 0;
+  for (let i=n; i<=m; i++) {
+    if (isPalindrome(String(i))) {
+      if (isPalindrome(String(i**2))) {
+        count += 1
+      };
+    };
+  };
+  return count;
 };
 
-var isPalindrome = function(n) {
-  return n === parseInt(String(n).split("").reverse().join(""));
+var isPalindrome = function(num) {
+  // return n === parseInt(String(n).split("").reverse().join(""));
+  if (num.length <= 1) return true;
+  if (num[0] != num[num.length-1]) return false;
+  return isPalindrome(num.slice(1, num.length-1));
 }
+
+// 43/48, cannot handle largest number case
