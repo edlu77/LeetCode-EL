@@ -5,6 +5,7 @@
  * @return {number[]}
  */
 var findDiagonalOrder = function(matrix) {
+  if (matrix.length === 0) return [];
   let m = matrix.length;
   let n = matrix[0].length;
   let result = [];
@@ -46,9 +47,9 @@ var findDiagonalOrder = function(matrix) {
         } else {
           row += 1;
           column -= 1;
-        }
-      }
-    }
-  }
+        };
+      };
+    };
+  };
 return result;
 };
